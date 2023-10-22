@@ -1,0 +1,463 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Lato:wght@700&display=swap');
+:root{
+  --gradient__scissors : linear-gradient(hsl(39, 89%, 49%),hsl(40, 84%, 53%));
+  --gradient__paper: linear-gradient(to bottom,hsl(230, 89%, 62%),hsl(230, 89%, 65%));
+  --gradient__rock: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --gradient__lizzar: linear-gradient( hsl(261, 73%, 60%),hsl(261, 72%, 63%));
+  --gradient__cyan: linear-gradient(hsl(189, 59%, 53%) , hsl(189, 58%, 57%));
+
+  --dark__Text: hsl(229, 25%, 31%);
+  --score__Text: hsl(229, 64%, 46%);
+  --header__Outline: hsl(217, 16%, 45%);
+
+  --background : linear-gradient(to bottom ,hsl(214, 47%, 23%),hsl(237, 49%, 15%));
+
+}
+
+*{
+  margin:0;
+  padding: 0;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: 'Lato', sans-serif;
+}
+
+body{
+  width: 100%;
+  height: 100vh;
+  background-image: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__game{
+  width:50%;
+  height: 80%;
+}
+
+/* Logo */
+.banner__Score{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 90px;
+  border: 2px solid var(--header__Outline);
+  border-radius: 10px;
+}
+.banner__Score .logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 75px;
+
+}
+
+.banner__Score .logo img{
+  width: 100px;
+  height: 60px;
+}
+
+/* logo score */
+.placares{
+  display: flex;
+  gap: 10px;
+}
+.container__score,.container__tentativas{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  
+  border-radius: 5px;
+  height: 70px;
+  width: 100px;
+  border: none;
+  background-color: white;
+}
+.container__score .score,.container__tentativas .tentativas{
+  display: flex;
+  height:40px;
+  flex-wrap: wrap;
+}
+
+.container__score .score p,.container__tentativas .tentativas p{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__score #text_score,.container__tentativas #text_tentativas {
+  display: flex;
+  flex-direction:column;
+  justify-content: start;
+  align-items: flex-start;
+  color: var(--score__Text);
+
+}
+#text_score_result,#text_tentativas_result{
+  font-size: 30px;
+}
+
+
+/* game Inicio */
+
+.game__Simbols{
+  position: relative;
+  margin-top: 80px;
+  min-height:200px;
+  display: flex;
+  flex-wrap: wrap;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+.game__Simbols__hands{
+  position:absolute;
+  min-height: 200px;
+  max-width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.game__Simbols .triangulo{
+    width:300px;
+    height:250px;
+}
+/* imagem */
+.game__Simbols .img__simbols{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: inset 0px 5px rgba(179, 179, 179, 0.5);
+}
+
+
+/* borda de fora */
+.game__Simbols .div__simbols{
+  margin: 20px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+/* Papel */
+.game__Simbols .paper{
+  background-image: var(--gradient__paper);
+  box-shadow: inset 0px -6px hsl(230, 42%, 47%);
+}
+/* Tesoura */
+.game__Simbols .scissors{
+  background-image: var(--gradient__scissors);
+  box-shadow: inset 0px -6px hsl(39, 81%, 43%);
+}
+/* Pedra */
+.game__Simbols .rock{
+  background-image: var(--gradient__rock);
+  box-shadow: inset 0px -6px hsl(349, 66%, 40%);
+}
+
+
+
+/* botão */
+.button__play{
+  /* ativar */
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: red;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.win__lose{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Decisão do jogo resultado final sem o valor do bot */
+
+.game__decision_symbols{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.game__decision_symbols h2{
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
+.div__you__picked .div__simbols{
+  margin: 20px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  cursor: default;  
+}
+
+.div__you__picked .your__pick{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: inset 0px 5px rgba(179, 179, 179, 0.5); 
+  cursor: default;
+}
+
+.div__bot__picked .img__simbols{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  /* js ativar */
+}
+
+.div__bot__picked .div__simbols__bot{
+  margin: 20px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: default;  
+  background-color: rgba(7, 11, 48, 0.418);
+  /* js  alterar as cores apenas ativar*/
+  /* background-image: var(--gradient__cyan);
+  box-shadow: inset 0px -6px hsl(230, 42%, 47%); */
+}
+/* modal */
+/* ativar quando apertar o botão rules */
+.modal__rules{
+  display: none;
+  position: absolute;
+  min-width: 400px;
+  min-height: 400px;
+  background: white;
+  border-radius: 10px;
+}
+
+.header__rules{
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  justify-content: space-between;
+}
+
+.header__rules h1{
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--dark__Text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__rules img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+#rules__X:hover{
+  cursor: pointer;
+}
+
+#btn_rules{
+  cursor: pointer;
+}
+
+
+.rules{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  min-width: 100px;
+  min-height: 200px;
+}
+
+
+/* Ativar ao ativar o modal */
+
+.container__game{
+  filter: blur(0px);
+}
+
+
+
+
+footer{
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  padding: 20px;
+   
+}
+
+.button__rules{
+  display: flex;
+  margin-right: 80px; 
+  width: 100%;
+  cursor: pointer;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.button__rules button{
+  background-color: transparent;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border: 2px solid var(--header__Outline);
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  letter-spacing: 2px;
+  
+}
+
+
+/* Media query */
+
+@media (max-width: 670px) and (min-width:320px){
+  .modal__rules{
+    display: block;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  .rules{
+    margin-top: 55%;
+    margin-left: 0px;
+
+  }
+  .rules img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 40%;
+  }
+
+  .header__rules {
+    margin-top: 5%;
+  } 
+
+
+  
+  .game__Simbols{
+    position: relative;
+    margin-top: 100%;
+    min-height:200px;
+    min-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .game__Simbols__hands{
+    position:absolute;
+    min-height: 200px;
+    max-width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .game__Simbols .triangulo{
+      width:300px;
+      height:250px;
+  }
+  /* imagem */
+  .game__Simbols .img__simbols{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: inset 0px 5px rgba(179, 179, 179, 0.5);
+  }
+  
+  
+  /* borda de fora */
+  .game__Simbols .div__simbols{
+    margin: 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    cursor: pointer;
+  }
+  /* Papel */
+  .game__Simbols .paper{
+    background-image: var(--gradient__paper);
+    box-shadow: inset 0px -6px hsl(230, 42%, 47%);
+  }
+  /* Tesoura */
+  .game__Simbols .scissors{
+    background-image: var(--gradient__scissors);
+    box-shadow: inset 0px -6px hsl(39, 81%, 43%);
+  }
+  /* Pedra */
+  .game__Simbols .rock{
+    background-image: var(--gradient__rock);
+    box-shadow: inset 0px -6px hsl(349, 66%, 40%);
+  }
+}

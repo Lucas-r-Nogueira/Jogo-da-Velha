@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png">
+  <title>Pedra, Papel, Tesoura</title>
+</head>
+<body>
+    <div class="container__game">
+      <div class="banner__Score">
+        <div class="logo">
+          <img src="./images/logo.svg" alt="aa">
+        </div>
+
+        <div class="placares">
+          <div class="container__score">
+            <p id="text_score">Pontos</p>
+            <!-- js -->
+            <div class="score">
+              <p id="text_score_result">0</p>
+            </div> 
+          </div>
+          <div class="container__tentativas">
+            <p id="text_tentativas">Tentativas</p>
+            <!-- js -->
+            <div class="tentativas">
+              <p id="text_tentativas_result">0</p>
+            </div> 
+          </div>
+        </div>
+      
+    </div>
+
+    <!-- Etapa 1 -->
+    <div class="game__Simbols">
+        <img src="./images/bg-triangle.svg" alt="" class="triangulo">
+      <div class="game__Simbols__hands">
+          <div class="paper div__simbols" id="paper">
+            <div class="img__paper img__simbols" ">
+              <img name="paper" src="./images/icon-paper.svg" alt="...">
+            </div>
+          </div>
+
+        <div class="scissors div__simbols" id="scissor">
+          <div class="img__scissor img__simbols">
+            <img name="scissor" src="./images/icon-scissors.svg" alt="...">
+          </div>
+        </div>
+
+        <div class="rock div__simbols">
+          <div class="img__rock img__simbols" id="rock">
+            <img name="rock" src="./images/icon-rock.svg" alt="...">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Etapa 2 -->
+
+        <div class="game__decision_symbols" style="display: none;">
+          <div class="div__you__picked">
+            <h2>Sua escolha</h2>
+            <div class="div__simbols backjs">
+                <div class="your__pick img__simbols">
+                  <img src="" alt="" id="img_picked">
+                </div>
+              </div>
+            </div>
+
+
+          <!-- Etapa 3 Button you win or lose -->
+          <div class="div__youWin__lose">
+            <h1 class="win__lose">
+              <!-- js -->
+            
+            </h1>
+            <div class="button_play__again">
+              <!-- js -->
+              <button class="button__play" onclick="EstadoBotaoPlayAgain()">Jogar </button>
+            </div>
+          </div>
+
+          <div class="div__bot__picked">
+            <h2>Escolha do Bot</h2>
+            <div class="div__simbols__bot">
+              <div class="bot__pick img__simbols" >
+                <!-- js colocar imagem -->
+                <img src="" alt="" id="img__bot">
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+            <!-- modal rules -->
+        <div class="modal__rules">
+          <div class="header__rules">
+            <h1>Regras</h1>
+            <!-- js --> 
+            <img src="./images/icon-close.svg" alt="" id="rules__X">
+          </div>
+          
+          <div class="rules">
+            <img src="./images/image-rules.svg" alt="">
+          </div>
+        </div>
+  <footer>
+    <div class="button__rules">
+      <button id="btn_rules">Regras</button>
+    </div>
+  </footer>
+
+  <script src="./js/script.js"></script>
+  <script src="./js/rules.js"></script>
+</body>
+</html>
